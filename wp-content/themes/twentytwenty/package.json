@@ -18,7 +18,7 @@
 		"url": "https://github.com/wordpress/twentytwenty/issues"
 	},
 	"devDependencies": {
-		"@wordpress/browserslist-config": "^2.6.0",
+		"@wordpress/browserslist-config": "^2.7.0",
 		"@wordpress/scripts": "^5.0.0",
 		"autoprefixer": "^9.6.1",
 		"concurrently": "^5.2.0",
