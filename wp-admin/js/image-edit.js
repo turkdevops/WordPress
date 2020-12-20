@@ -302,7 +302,7 @@
 				}
 			}
 
-			// Reset size to it's original state.
+			// Reset size to its original state.
 			if ( setSize ) {
 				if ( !history.length ) {
 					this.hold.w = this.hold.ow;
@@ -1007,6 +1007,10 @@
 			sel.fh = h;
 			this.addStep({ 'c': sel }, postid, nonce);
 		}
+
+		// Clear the selection fields after cropping.
+		$('#imgedit-sel-width-' + postid).val('');
+		$('#imgedit-sel-height-' + postid).val('');
 	},
 
 	/**
