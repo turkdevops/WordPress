@@ -837,7 +837,7 @@ function wp_extract_urls( $content ) {
  *
  * @param string|null $content Post content. If `null`, the `post_content` field from `$post` is used.
  * @param int|WP_Post $post    Post ID or post object.
- * @return null|bool Returns false if post is not found.
+ * @return void|false Void on success, false if the post is not found.
  */
 function do_enclose( $content, $post ) {
 	global $wpdb;
@@ -938,7 +938,7 @@ function do_enclose( $content, $post ) {
  *
  * @param string $url        URL to retrieve HTTP headers from.
  * @param bool   $deprecated Not Used.
- * @return bool|string False on failure, headers on success.
+ * @return string|false Headers on success, false on failure.
  */
 function wp_get_http_headers( $url, $deprecated = false ) {
 	if ( ! empty( $deprecated ) ) {
@@ -3014,18 +3014,18 @@ function wp_check_filetype_and_ext( $file, $filename, $mimes = null ) {
 	 * @since 3.0.0
 	 * @since 5.1.0 The $real_mime parameter was added.
 	 *
-	 * @param array       $wp_check_filetype_and_ext {
+	 * @param array        $wp_check_filetype_and_ext {
 	 *     Values for the extension, mime type, and corrected filename.
 	 *
 	 *     @type string|false $ext             File extension, or false if the file doesn't match a mime type.
 	 *     @type string|false $type            File mime type, or false if the file doesn't match a mime type.
 	 *     @type string|false $proper_filename File name with its correct extension, or false if it cannot be determined.
 	 * }
-	 * @param string      $file                      Full path to the file.
-	 * @param string      $filename                  The name of the file (may differ from $file due to
-	 *                                               $file being in a tmp directory).
-	 * @param string[]    $mimes                     Array of mime types keyed by their file extension regex.
-	 * @param string|bool $real_mime                 The actual mime type or false if the type cannot be determined.
+	 * @param string       $file                      Full path to the file.
+	 * @param string       $filename                  The name of the file (may differ from $file due to
+	 *                                                $file being in a tmp directory).
+	 * @param string[]     $mimes                     Array of mime types keyed by their file extension regex.
+	 * @param string|false $real_mime                 The actual mime type or false if the type cannot be determined.
 	 */
 	return apply_filters( 'wp_check_filetype_and_ext', compact( 'ext', 'type', 'proper_filename' ), $file, $filename, $mimes, $real_mime );
 }
@@ -4433,7 +4433,7 @@ function smilies_init() {
 }
 
 /**
- * Merge user defined arguments into defaults array.
+ * Merges user defined arguments into defaults array.
  *
  * This function is used throughout WordPress to allow for both string or array
  * to be merged into another array.
@@ -4462,12 +4462,12 @@ function wp_parse_args( $args, $defaults = array() ) {
 }
 
 /**
- * Cleans up an array, comma- or space-separated list of scalar values.
+ * Converts a comma- or space-separated list of scalar values to an array.
  *
  * @since 5.1.0
  *
  * @param array|string $list List of values.
- * @return array Sanitized array of values.
+ * @return array Array of values.
  */
 function wp_parse_list( $list ) {
 	if ( ! is_array( $list ) ) {
@@ -4478,7 +4478,7 @@ function wp_parse_list( $list ) {
 }
 
 /**
- * Clean up an array, comma- or space-separated list of IDs.
+ * Cleans up an array, comma- or space-separated list of IDs.
  *
  * @since 3.0.0
  *
@@ -4492,7 +4492,7 @@ function wp_parse_id_list( $list ) {
 }
 
 /**
- * Clean up an array, comma- or space-separated list of slugs.
+ * Cleans up an array, comma- or space-separated list of slugs.
  *
  * @since 4.7.0
  *
@@ -6914,7 +6914,7 @@ function mysql_to_rfc3339( $date_string ) {
  *                        'image', or an arbitrary other context. If an arbitrary context is passed,
  *                        the similarly arbitrary {@see '$context_memory_limit'} filter will be
  *                        invoked. Default 'admin'.
- * @return bool|int|string The limit that was set or false on failure.
+ * @return int|string|false The limit that was set or false on failure.
  */
 function wp_raise_memory_limit( $context = 'admin' ) {
 	// Exit early if the limit cannot be changed.
