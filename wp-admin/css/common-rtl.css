@@ -2119,7 +2119,6 @@ html.wp-toolbar {
 .postbox .hndle,
 .stuffbox .hndle {
 	-webkit-user-select: none;
-	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 }
@@ -3291,11 +3290,15 @@ img {
 	display: none;
 }
 
+#theme-plugin-editor-selector,
+#theme-plugin-editor-label,
+#documentation label {
+	font-weight: 600;
+}
 
 #theme-plugin-editor-label {
 	display: inline-block;
 	margin-bottom: 1em;
-	font-weight: 600;
 }
 
 /* rtl:ignore */
@@ -3391,7 +3394,6 @@ img {
 #documentation label {
 	line-height: 1.8;
 	vertical-align: baseline;
-	font-weight: 600;
 }
 
 .fileedit-sub {
@@ -3512,7 +3514,6 @@ img {
 	border-right: 1px solid #ddd;
 	border-left: 1px solid #ddd;
 	-webkit-user-select: none;
-	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 }
